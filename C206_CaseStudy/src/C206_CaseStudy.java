@@ -7,7 +7,7 @@ public class C206_CaseStudy {
 
 		// insert initial data
 
-//		BikeDB.populateBikeDB();
+//		CustomerDB.populateBikeDB();
 
 		AppointmentDB.populateAppointmentDB(); // Create by Chad on 10/08/2020
 
@@ -19,8 +19,8 @@ public class C206_CaseStudy {
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				// Call BikeDB
-//				BikeDB.handleBikeOptions();
+				// Call CustomerDB
+//				CustomerDB.handleBikeOptions();
 			} else if (option == 2) {
 				// Call BikePartDB menu
 
@@ -38,7 +38,7 @@ public class C206_CaseStudy {
 		}
 
 		// clean up data
-//		BikeDB.cleanupBikeDB();
+//		CustomerDB.cleanupBikeDB();
 
 		AppointmentDB.cleanupAppointmentDB(); // Created by Chad on 10/08/2020
 
@@ -49,7 +49,7 @@ public class C206_CaseStudy {
 		Helper.line(50, "=");
 		System.out.println("BIKE LOVER'S COMMUNITY MANAGER");
 		Helper.line(50, "=");
-		System.out.println("1. Bike Menu");
+		System.out.println("1. Customer Menu");
 		System.out.println("2. Bike Part Menu");
 		System.out.println("3. Feedback Menu");
 		System.out.println("4. Appointment Menu");
