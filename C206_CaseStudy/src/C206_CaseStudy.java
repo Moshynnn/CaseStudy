@@ -53,6 +53,7 @@ public class C206_CaseStudy {
 		System.out.println("2. Bike Part Menu");
 		System.out.println("3. Feedback Menu");
 		System.out.println("4. Appointment Menu");
+		System.out.println("5. Quit");
 	}
 
 }
