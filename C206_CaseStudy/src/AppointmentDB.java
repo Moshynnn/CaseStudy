@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * 19028690, 11 Aug 2020 4:01:31 pm
  */
 // Created by Chad on 10/08/2020
+
 public class AppointmentDB {
 
 	private static ArrayList<Appointment> appointmentList = new ArrayList<Appointment>();
@@ -55,7 +56,7 @@ public class AppointmentDB {
 				// Delete a Appointment
 				int i = selectAppointmentToDelete();
 				try {
-					delAppointment(getAppointmentArrayList().get(i - 1));
+					delAppointment(appointmentList.get(i - 1));
 				} catch (IndexOutOfBoundsException e) {
 					System.out.println(e.getMessage());
 				}
@@ -77,9 +78,9 @@ public class AppointmentDB {
 		// retrieve and format all Appointment in the list
 		int i = 0;
 		String output = "";
-		if (!getAppointmentArrayList().isEmpty()) {
+		if (!appointmentList.isEmpty()) {
 			output = String.format("%-5S%-15S%-15S%S\n", "ID", "NAME", "DATE", "TIME");
-			for (Appointment a : getAppointmentArrayList()) {
+			for (Appointment a : appointmentList) {
 				i++;
 				output += String.format("%-5S%-15S%-15S%S\n", i, a.getCustomerName(), a.getDate(), a.getTime());
 			}
@@ -92,13 +93,13 @@ public class AppointmentDB {
 	// ========== Option 2 ==============
 	public static Appointment inputAppointmentToAdd() {
 		String name = Helper.readString("Enter Name > ");
-		String date = Helper.readString("Enter Date (DD/MM/YY) > ");
+		String date = Helper.readString("Enter Date (DD/MM/YYYY) > ");
 		String time = Helper.readString("Enter Time in 24 Hour Format (HH:MM) > ");
 		return new Appointment(name, date, time);
 	}
 
 	public static void addAppointment(Appointment a) {
-		getAppointmentArrayList().add(a);
+		appointmentList.add(a);
 		System.out.println("Appointment added");
 	}
 
@@ -109,16 +110,16 @@ public class AppointmentDB {
 	}
 
 	public static void delAppointment(Appointment a) {
-		getAppointmentArrayList().remove(a);
+		appointmentList.remove(a);
 		System.out.println("Appointment deleted");
 	}
 
 	// ============== Helper Functions=======
-	public static ArrayList<Appointment> getAppointmentArrayList() {
+	public static ArrayList<Appointment> getAppointmentList() {
 		return appointmentList;
 	}
 
-	public static void setAppointmentArrayList(ArrayList<Appointment> a) {
+	public static void setAppointmentList(ArrayList<Appointment> a) {
 		appointmentList = a;
 	}
 
