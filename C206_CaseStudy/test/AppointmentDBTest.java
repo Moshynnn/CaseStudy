@@ -16,7 +16,7 @@ public class AppointmentDBTest {
 	private Appointment ap1;
 	private Appointment ap2;
 
-	private ArrayList<Appointment> appointmentList;
+	private ArrayList<Appointment> appointmentAList;
 
 	@Before
 	public void setUp() throws Exception {
