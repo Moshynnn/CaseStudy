@@ -20,13 +20,13 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 				// Call CustomerDB
-				CustomerDB.processOption();
+//				CustomerDB.handleCustomerOptions(); // Create by Ya wen on 18/08/2020
 			} else if (option == 2) {
 				// Call BikePartDB menu
 				BikePartsDB.handleBikePartOptions(); // Create by Muhsin on 17/08/2020
 			} else if (option == 3) {
 				// Call Feedback menu
-
+//				FeedbackDB.handleFeedbackOptions(); // Create by Kai wen on 18/08/2020
 			} else if (option == 4) {
 				// Call Appointment menu
 				AppointmentDB.handleAppointmentOptions(); // Created by Chad on 10/08/2020
