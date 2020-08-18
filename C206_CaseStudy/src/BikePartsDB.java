@@ -63,7 +63,7 @@ public class BikePartsDB {
 	
 	// ========== Option 1 ==============
 	public static void viewAllBikepart() {
-		System.out.println(retrieveAllBikePart());
+		System.out.println(retrieveAllBikePart());get
 	}
 	
 	public static String retrieveAllBikePart() {
