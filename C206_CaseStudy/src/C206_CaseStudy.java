@@ -9,8 +9,8 @@ public class C206_CaseStudy {
 		CustomerDB.populateCustomerDB(); // Create by Ya wen on 18/08/2020
 		BikePartsDB.populateBikePartDB(); // Create by Muhsin on 17/08/2020
 		AppointmentDB.populateAppointmentDB(); // Create by Chad on 10/08/2020
-		FeedbackDB.populateFeedbackDB(); //create by Kaiwen on 18/08/2020
-		
+		FeedbackDB.populateFeedbackDB(); // create by Kaiwen on 18/08/2020
+
 		int option = 0;
 
 		while (option != OPTION_QUIT) {
@@ -26,8 +26,7 @@ public class C206_CaseStudy {
 				BikePartsDB.handleBikePartOptions(); // Create by Muhsin on 17/08/2020
 			} else if (option == 3) {
 				// Call Feedback menu
-
-				FeedbackDB.handleFeedbackOptions(); //Create by Kaiwen on 18/08/2020
+				FeedbackDB.handleFeedbackOptions(); // Create by Kaiwen on 18/08/2020
 			} else if (option == 4) {
 				// Call Appointment menu
 				AppointmentDB.handleAppointmentOptions(); // Created by Chad on 10/08/2020
@@ -43,7 +42,6 @@ public class C206_CaseStudy {
 		BikePartsDB.cleanupBikePartDB(); // Create by Muhsin on 17/08/2020
 		AppointmentDB.cleanupAppointmentDB(); // Created by Chad on 10/08/2020
 		FeedbackDB.cleanupFeedbackDB(); // Create by Kaiwen on 18/08/2020
-
 
 	}
 

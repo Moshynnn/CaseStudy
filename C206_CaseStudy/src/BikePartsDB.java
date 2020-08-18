@@ -4,7 +4,6 @@ public class BikePartsDB {
 
 	private static ArrayList<BikePart> bikepartList = new ArrayList<BikePart>();
 
-	
 	public static void populateBikePartDB() {
 		// add some data to the list
 		BikePart bp1 = new BikePart("Tyre", "BMX type 1", 22.50);
@@ -12,16 +11,18 @@ public class BikePartsDB {
 		bikepartList.add(bp1);
 		bikepartList.add(bp2);
 	}
+
 	public static void cleanupBikePartDB() {
 		// clean up the data in the list
 		bikepartList.clear();
 	}
+
 	public static void handleBikePartOptions() {
 		// show bike menu, ask user for input, process the choice
 		int subOption = 0;
 		processOption(subOption);
 	}
-	
+
 	public static void showBikePartMenu() {
 		Helper.line(50, "=");
 		System.out.println("Bikepart MENU");
@@ -31,7 +32,7 @@ public class BikePartsDB {
 		System.out.println("3. Delete BikePart");
 		System.out.println("4. Back");
 	}
-	
+
 	public static void processOption(int subOption) {
 		while (subOption != 4) {
 			showBikePartMenu();
@@ -58,14 +59,12 @@ public class BikePartsDB {
 			}
 		}
 	}
-	
-	
-	
+
 	// ========== Option 1 ==============
 	public static void viewAllBikepart() {
-		System.out.println(retrieveAllBikePart());get
+		System.out.println(retrieveAllBikePart());
 	}
-	
+
 	public static String retrieveAllBikePart() {
 		// retrieve and format all Bikepart in the list
 		int i = 0;
@@ -81,38 +80,38 @@ public class BikePartsDB {
 		}
 		return output;
 	}
-	
-	// ========== Option 2 ==============
-		public static BikePart inputBikePartToAdd() {
-			String part = Helper.readString("Enter Bike part Name > ");
-			String desc = Helper.readString("Enter description for bike part > ");
-			double price = Helper.readDouble("Enter Price of bike part > ");
-			return new BikePart(part, desc, price);
-		}
 
-		public static void addBikePart(BikePart bp) {
-			bikepartList.add(bp);
-			System.out.println("Bike part added");
-		}
+	// ========== Option 2 ==============
+	public static BikePart inputBikePartToAdd() {
+		String part = Helper.readString("Enter Bike part Name > ");
+		String desc = Helper.readString("Enter description for bike part > ");
+		double price = Helper.readDouble("Enter Price of bike part > ");
+		return new BikePart(part, desc, price);
+	}
+
+	public static void addBikePart(BikePart bp) {
+		bikepartList.add(bp);
+		System.out.println("Bike part added");
+	}
 
 	// ========== Option 3 ==============
-		public static int selectBikePartToDelete() {
-			int id = Helper.readInt("Enter BikePart ID > ");
-			return id;
-		}
+	public static int selectBikePartToDelete() {
+		int id = Helper.readInt("Enter BikePart ID > ");
+		return id;
+	}
 
-		public static void delBikePart(BikePart bp) {
-			bikepartList.remove(bp);
-			System.out.println("BikePart deleted");
-		}
+	public static void delBikePart(BikePart bp) {
+		bikepartList.remove(bp);
+		System.out.println("BikePart deleted");
+	}
 
-		// ============== Helper Functions=======
-		public static ArrayList<BikePart> getBikePartList() {
-			return bikepartList;
-		}
+	// ============== Helper Functions=======
+	public static ArrayList<BikePart> getBikePartList() {
+		return bikepartList;
+	}
 
-		public static void setBikePartList(ArrayList<BikePart> bp) {
-			bikepartList = bp ;
-		}
-			
+	public static void setBikePartList(ArrayList<BikePart> bp) {
+		bikepartList = bp;
+	}
+
 }
