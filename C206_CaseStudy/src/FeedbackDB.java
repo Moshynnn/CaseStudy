@@ -18,7 +18,7 @@ public class FeedbackDB {
 		}
 		
 		public static void handleFeedbackOptions() {
-			//show feedback, ask user, process the option
+			//show feedback, ask user, process the option.
 			int subOption = 0;
 			processOption(subOption);
 		}
