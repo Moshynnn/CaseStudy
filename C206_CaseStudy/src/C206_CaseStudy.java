@@ -20,7 +20,7 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 				// Call CustomerDB
-//				CustomerDB.handleBikeOptions();
+				CustomerDB.processOption();
 			} else if (option == 2) {
 				// Call BikePartDB menu
 				BikePartsDB.handleBikePartOptions(); // Create by Muhsin on 17/08/2020
