@@ -33,7 +33,7 @@ public class AppointmentDBTest {
 		AppointmentDB.addAppointment(ap1);
 		AppointmentDB.addAppointment(ap2);
 		assertEquals("Check that Appointment arraylist size is 2", 2, AppointmentDB.getAppointmentList().size());
-
+		
 	}
 
 	@Test
