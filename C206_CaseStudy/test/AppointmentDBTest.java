@@ -61,6 +61,25 @@ public class AppointmentDBTest {
 		assertSame("Check that Appointment is added", ap2, appointmentList.get(0));
 	}
 
+	@Test
+	public void searchAppointmentTest() {
+		assertNotNull("Check if there is valid Appointment arraylist to add to", appointmentList);
+		// Add Test Data
+		AppointmentDB.populateAppointmentDB();
+		appointmentList.add(ap1);
+		appointmentList.add(ap2);
+		assertEquals("Check that Appointment arraylist size is 2", 2, appointmentList.size());
+		// Test search function
+		String output = String.format("%-5S%-15S%-15S%S\n", "ID", "NAME", "DATE", "TIME");
+		String customerName = appointmentList.get(1).getCustomerName();
+		String date = appointmentList.get(1).getDate();
+		String time = appointmentList.get(1).getTime();
+		output += String.format("%-5S%-15S%-15S%S\n", 1, customerName, date, time);
+
+		assertEquals("Check that Appointment search gets the correct Appointment", output,
+				AppointmentDB.searchAppointment("james"));
+	}
+
 	@After
 	public void tearDown() throws Exception {
 		ap1 = null;

@@ -62,7 +62,8 @@ public class AppointmentDB {
 					System.out.println(e.getMessage());
 				}
 			} else if (subOption == 4) {
-				searchAppointment();
+				String name = Helper.readString("Enter customer name > ");
+				System.out.println(searchAppointment(name));
 			} else if (subOption == 5) {
 				System.out.println("Appointment Menu Closed");
 			} else {
@@ -118,13 +119,14 @@ public class AppointmentDB {
 	}
 
 	// ========== Option 4 ==============
-	public static void searchAppointment() {
+	public static String searchAppointment(String name) {
 		boolean hasCustomerName = false;
 		String output = "";
 		int i = 0;
-		if (!appointmentList.isEmpty()) {
+		if (appointmentList.isEmpty()) {
+			output += "No Appointments in the Database";
+		} else {
 			output = String.format("%-5S%-15S%-15S%S\n", "ID", "NAME", "DATE", "TIME");
-			String name = Helper.readString("Enter Customer Name > ");
 			for (Appointment a : appointmentList) {
 				if (a.getCustomerName().equalsIgnoreCase(name)) {
 					i++;
@@ -132,15 +134,11 @@ public class AppointmentDB {
 					hasCustomerName = true;
 				}
 			}
-		} else {
-			output += "No Appointments in the Database";
 		}
-		if (hasCustomerName) {
-			System.out.println(output);
-		} else {
-			System.out.println("There are no appointments under that name");
+		if (!hasCustomerName) {
+			output = "There are no Appointment with the name " + name.toUpperCase();
 		}
-
+		return output;
 	}
 
 	// ============== Helper Functions=======
