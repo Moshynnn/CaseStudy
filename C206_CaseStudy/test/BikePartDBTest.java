@@ -57,5 +57,19 @@ public class BikePartDBTest {
 		assertSame("Check that BikePart is added", bp2, BikePartsDB.getBikePartList().get(0));
 	}
 	
+	@Test
+	public void updBikePartTest() {
+		assertNotNull("Check if there is valid BikePart arraylist to add to", BikePartsDB.getBikePartList());
+		BikePartsDB.addBikePart(bp1);
+		
+		
+		// Create variable to update bike part an ID and New name of the Bike part
+		
+		BikePartsDB.updateBikePart(1, "Gear");
+		
+		// Checking whether the name was successfully updated. 
+		assertSame("Check that BikePart name is updated", "Gear", BikePartsDB.getBikePartList().get(0).getName());
+	}
+	
 }
 
