@@ -6,8 +6,8 @@ public class FeedbackDB {
 
 		public static void populateFeedbackDB() {
 			//adding feedback to the list
-			Feedback f1 = new Feedback("Tom", "Product not good", "Still pending solving");
-			Feedback f2 = new Feedback("Ben", "Service is good", "Solved");
+			Feedback f1 = new Feedback("Tom", "Product not good", "Still pending solving","23/11/2012");
+			Feedback f2 = new Feedback("Ben", "Service is good", "Solved","26/10/2012");
 			feedbackList.add(f1);
 			feedbackList.add(f2);
 		}
@@ -30,7 +30,8 @@ public class FeedbackDB {
 			System.out.println("1. View All Feedback");
 			System.out.println("2. Add a Feedback");
 			System.out.println("3. Delete Feedback");
-			System.out.println("4. Back");
+			System.out.println("4. Search Feedback by date");
+			System.out.println("5. Back");
 		}
 		public static void processOption(int subOption) {
 			while (subOption != 4) {
@@ -51,7 +52,12 @@ public class FeedbackDB {
 					} catch (IndexOutOfBoundsException e) {
 						System.out.println(e.getMessage());
 					}
+					//Search feedback by date
 				} else if (subOption == 4) {
+					String date = Helper.readString("Enter feedback date (dd/mm/yyyy)> ");
+					System.out.println(searchFeedback(date));
+					//Quit
+				} else if (subOption == 5) {
 					System.out.println("Feedback Menu Closed");
 				} else {
 					System.out.println("Invalid Option");
@@ -68,10 +74,10 @@ public class FeedbackDB {
 			int i = 0;
 			String output = "";
 			if (!feedbackList.isEmpty()) {
-				output = String.format("%-5S%-11S%-16S %S\n", "ID", "CUSTOMER", "FEEDBACK", "RESPONSE");
+				output = String.format("%-4s %-10s %-30s %-30s %-15s\n","ID","CUSTOMER", "FEEDBACK", "RESPONSE", "DATE");
 				for (Feedback f : feedbackList) {
 					i++;
-					output += String.format("%-4d %-10S %-15S %-25S \n", i, f.getCustomer(), f.getFeedback(), f.getResponse());
+					output += String.format("%-4d %-10s %-30s %-30s %-15s\n", i, f.getCustomer(), f.getFeedback(), f.getResponse(),f.getDate());
 				}
 			} else {
 				output += "No Feedback";
@@ -81,10 +87,11 @@ public class FeedbackDB {
 			
 		// ========== Option 2 ==============
 			public static Feedback inputFeedbackToAdd() {
-				String Customer = Helper.readString("Enter customer came > ");
+				String Customer = Helper.readString("Enter customer name > ");
 				String Feedback = Helper.readString("Enter feedback of customer > ");
-				String Response = Helper.readString("Enter response of customer > ");
-				return new Feedback(Customer, Feedback, Response);
+				String Response = Helper.readString("Enter response > ");
+				String Date =  Helper.readString("Enter date of feedback (dd/mm/yyyy)> ");
+				return new Feedback(Customer, Feedback, Response,Date);
 			}
 
 			public static void addFeedback(Feedback f) {
@@ -102,6 +109,28 @@ public class FeedbackDB {
 				feedbackList.remove(f);
 				System.out.println("Feedback deleted");
 			}
+		//================ Option 4 =============
+		public static String searchFeedback(String date) {
+			boolean hasFeedback = false;
+			String output = "";
+			int i = 0;
+			if (feedbackList.isEmpty()) {
+				output += "No Feedbacks in the Database";
+			} else {
+				output = String.format("%-4s %-10s %-30s %-30s %-15s\n", "ID", "CUSTOMER", "FEEDBACK", "RESPONSE", "DATE");
+				for (Feedback f : feedbackList) {
+					if (f.getDate().equals(date)) {
+						i++;
+						output += String.format("%-4d %-10s %-30s %-30s %-15s\n", i, f.getCustomer(), f.getFeedback(), f.getResponse(),f.getDate());
+						hasFeedback = true;
+					}
+				}
+			}
+			if (!hasFeedback) {
+				output = "There are no feedback in the date" ;
+			}
+			return output;
+		}
 
 			// ============== Helper Functions=======
 			public static ArrayList<Feedback> getfeedbackList() {
@@ -112,6 +141,7 @@ public class FeedbackDB {
 				feedbackList = f ;
 			
 		}
+			
 		}
 
 
