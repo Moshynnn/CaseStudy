@@ -43,12 +43,13 @@ public class CustomerDB {
 		System.out.println("1. View all customers");
 		System.out.println("2. Add customer");
 		System.out.println("3. Delete customer");
-		System.out.println("4. Quit");
+		System.out.println("4. Update customer details");
+		System.out.println("5. Quit");
 	}
 	
 	public static void processOption(int option) {
 		
-		while(option != 4) {
+		while(option != 5) {
 			ShowCustomerMenu();
 			option = Helper.readInt("Enter option > ");
 			if(option == 1) {
@@ -69,9 +70,10 @@ public class CustomerDB {
 				}catch(IndexOutOfBoundsException io ) {
 					System.out.println(io.getMessage());
 				}
-				
-				
-			} else if (option == 4) {
+			}else if (option == 4 ) {
+				// update customer details 
+				updateCustomerDetails();
+			} else if (option == 5) {
 				System.out.println("Thank you and goodbye");
 			} else {
 				System.out.println("Invalid option");
@@ -124,13 +126,37 @@ public class CustomerDB {
 		return id;
 	
 	}
+	
 		
 	public static void delCustomer(Customer customer) {
 		customerList.remove(customer);
 		System.out.println("Customer deleted");
 		
 	}
-	
+	 
+	//option 4 
+	public static void updateCustomerDetails() {
+		boolean isfound = false;
+		String update = Helper.readString("Enter customer name > ");
+		String output = "";
+		int i = 0;
+		for(Customer c : customerList) {
+			if (c.getName().equalsIgnoreCase(update)) {
+				String newphone = Helper.readString("Enter new phone number > ");
+				String newemail = Helper.readString("Enter new email > ");
+				c.setPhone(newphone);
+				c.setEmail(newemail);
+				
+				isfound = true;
+				System.out.println("Customer's details updated");
+					
+				} 
+				}
+		if(isfound == false) {
+			System.out.println("Invalid Customer");
+			
+		}
+	}
 	
 	
 	public static ArrayList<Customer> getCustomerList(){
