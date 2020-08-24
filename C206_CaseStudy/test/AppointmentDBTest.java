@@ -63,6 +63,7 @@ public class AppointmentDBTest {
 
 	@Test
 	public void searchAppointmentTest() {
+		// Check Appointment list is not null
 		assertNotNull("Check if there is valid Appointment arraylist to add to", appointmentList);
 		// Add Test Data
 		AppointmentDB.populateAppointmentDB();
